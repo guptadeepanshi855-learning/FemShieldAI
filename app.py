@@ -9,23 +9,18 @@ import io
 # 1. Page Config Setup
 st.set_page_config(page_title="FemShieldAI Portal", page_icon="🛡️", layout="wide")
 
-# 2. Advanced Premium Cyber UI Engine Injection (Targeting Native Elements)
+# 2. Advanced Premium Cyber UI Engine Injection
 ui_css = """
 <style>
-/* Base Dark Theme Layout */
 .stApp { 
     background: radial-gradient(circle at top right, #0f172a, #020617) !important; 
     color: #f8fafc !important; 
 }
-
-/* Glowing Neon Headers */
 h1, h2, h3 { 
     color: #38bdf8 !important; 
     text-shadow: 0px 0px 15px rgba(56, 189, 248, 0.4) !important;
     font-weight: 700 !important;
 }
-
-/* Glassmorphism Border Containers (Fix for plain looks) */
 div[data-testid="stVerticalBlockBorderWrapper"] {
     background: rgba(30, 41, 59, 0.45) !important;
     backdrop-filter: blur(12px) !important;
@@ -35,8 +30,6 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
     margin-bottom: 20px !important;
 }
-
-/* Premium High-Contrast Navigation Tabs */
 .stTabs [data-baseweb="tab-list"] { 
     gap: 12px !important; 
     background-color: #0f172a !important; 
@@ -54,8 +47,6 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     background-color: #0ea5e9 !important; 
     box-shadow: 0px 0px 10px rgba(14, 165, 233, 0.4) !important;
 }
-
-/* High-Contrast Interactive Buttons */
 div.stButton > button:first-child { 
     background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%) !important; 
     color: white !important; 
@@ -76,7 +67,6 @@ st.markdown("<p style='color: #94a3b8; font-size: 1.1rem;'>A proactive anti-AI d
 st.write("")
 
 tab1, tab2, tab3, tab4 = st.tabs(["📸 Visual Shield", "🎙️ Vocal Shield", "🔍 Digital Forensic", "📊 Dashboard"])
-
 # ==========================================
 # 📸 TAB 1: VISUAL SHIELD (ANTI-AI CORE)
 # ==========================================
@@ -203,19 +193,20 @@ with tab3:
                 with c1: st.metric(label="🛡️ File Authenticity Index", value=f"{integrity_index}%")
                 with c2: st.write(f"**Security Condition:** `{'Minimal Risk' if integrity_index > 80 else 'Medium Risk'}`")
                 for note in status_notes: st.write(f"• {note}")
-
 # ==========================================
 # 📊 TAB 4: DEFENSE DASHBOARD
 # ==========================================
 with tab4:
-with st.container(border=True):
-st.header("📊 FemShieldAI Analytics Dashboard")
-col_m1, col_m2 = st.columns(2)
-with col_m1: st.metric(label="🛡️ Shield Integrity Level", value="Active & Secured", delta="Threat Index: Minimal")
-with col_m2: st.metric(label="⚙️ Cryptographic Status", value="Adversarial Core Active", delta="Pipeline: Operational")
-st.write("---")
-st.subheader("📈 Real-time Network Telemetry & Core Activity Logs")
-chart_data = np.random.randint(10, 80, size=(20, 2))
-st.line_chart(chart_data)
-st.progress(100)
-st.info("System integrity verified. Core defensive wrappers are active.")
+    with st.container(border=True):
+        st.header("📊 FemShieldAI Analytics Dashboard")
+        col_m1, col_m2 = st.columns(2)
+        with col_m1:
+            st.metric(label="🛡️ Shield Integrity Level", value="Active & Secured", delta="Threat Index: Minimal")
+        with col_m2:
+            st.metric(label="⚙️ Cryptographic Status", value="Adversarial Core Active", delta="Pipeline: Operational")
+        st.write("---")
+        st.subheader("📈 Real-time Network Telemetry & Core Activity Logs")
+        chart_data = np.random.randint(10, 80, size=(20, 2))
+        st.line_chart(chart_data)
+        st.progress(100)
+        st.info("System integrity verified. Core defensive wrappers are active.")
