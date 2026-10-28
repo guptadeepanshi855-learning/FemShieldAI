@@ -6,13 +6,24 @@ from PIL import Image
 from PIL.ExifTags import TAGS
 import io
 
-# 1. Page Config
+# 1. Page Config Setup
 st.set_page_config(page_title="FemShieldAI Portal", page_icon="🛡️", layout="wide")
 
-# 2. Premium UI Glow injection without large markdown blocks
-st.markdown("<style>.stApp { background: radial-gradient(circle at top right, #0f172a, #020617); color: #f8fafc; font-family: 'Inter', sans-serif; } h1, h2, h3 { color: #0ea5e9 !important; text-shadow: 0px 0px 15px rgba(14, 165, 233, 0.3); font-weight: 700 !important; } .cyber-card { background: rgba(30, 41, 59, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); padding: 28px; border-radius: 20px; margin-bottom: 24px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); } .stTabs [data-baseweb="tab-list"] { gap: 16px; background-color: rgba(15, 23, 42, 0.8); padding: 10px; border-radius: 16px; } .stTabs [data-baseweb="tab"] { color: #94a3b8 !important; font-weight: 600 !important; padding: 10px 20px !important; border-radius: 10px !important; } .stTabs [aria-selected="true"] { color: #ffffff !important; background-color: #0ea5e9 !important; box-shadow: 0px 0px 12px rgba(14, 165, 233, 0.5); } div.stButton > button:first-child { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%) !important; color: white !important; font-weight: 600 !important; border: none !important; border-radius: 12px !important; padding: 12px 24px !important; box-shadow: 0px 4px 14px rgba(14, 165, 233, 0.4) !important; width: 100%; }</style>", unsafe_allow_html=True)
+# 2. Premium Cyber Theme Setup (Fully Cleaned Syntax)
+ui_css = """
+<style>
+.stApp { background: #0b0f19; color: #f8fafc; }
+h1, h2, h3 { color: #0ea5e9 !important; text-shadow: 0px 0px 12px rgba(14, 165, 233, 0.3); }
+.cyber-card { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px; }
+.stTabs [data-baseweb="tab-list"] { background-color: #0f172a; padding: 8px; border-radius: 12px; }
+.stTabs [data-baseweb="tab"] { color: #94a3b8 !important; font-weight: 600 !important; }
+.stTabs [aria-selected="true"] { color: #ffffff !important; background-color: #0ea5e9 !important; }
+div.stButton > button:first-child { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%) !important; color: white !important; font-weight: bold !important; border-radius: 10px !important; width: 100%; }
+</style>
+"""
+st.markdown(ui_css, unsafe_allow_html=True)
 
-# 3. Main Title Layout
+# 3. Main Header Layout
 st.title("🛡️ FemShieldAI: Advanced Privacy Framework")
 st.markdown("<p style='color: #94a3b8; font-size: 1.1rem;'>A proactive anti-AI defense and digital forensic system for women's digital privacy.</p>", unsafe_allow_html=True)
 st.write("")
